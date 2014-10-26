@@ -496,6 +496,7 @@ func (c *Conn) readLoop() {
 				goto exit
 			}
 			msg.Delegate = delegate
+			msg.Source = c.String()
 
 			atomic.AddInt64(&c.rdyCount, -1)
 			atomic.AddInt64(&c.messagesInFlight, 1)
